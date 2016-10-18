@@ -12,27 +12,27 @@ class ViewTest extends TestCase
         $this->breadcrumbs = [
             (object) [
                 'title' => 'Home',
-                'url'   => '/',
+                'url' => '/',
                 'first' => true,
-                'last'  => false,
+                'last' => false,
             ],
             (object) [
                 'title' => 'Not a link',
-                'url'   => null, // Test non-links
+                'url' => null, // Test non-links
                 'first' => false,
-                'last'  => false,
+                'last' => false,
             ],
             (object) [
                 'title' => 'Blog & < >', // Test HTML escaping
-                'url'   => '/blog',
+                'url' => '/blog',
                 'first' => false,
-                'last'  => false,
+                'last' => false,
             ],
             (object) [
                 'title' => 'Sample Post',
-                'url'   => '/blog/123',
+                'url' => '/blog/123',
                 'first' => false,
-                'last'  => true,
+                'last' => true,
             ],
         ];
     }

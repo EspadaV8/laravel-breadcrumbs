@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 // Load Composer packages
 require __DIR__ . '/vendor/autoload.php';
 
