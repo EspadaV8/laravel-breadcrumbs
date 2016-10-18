@@ -1,39 +1,38 @@
 <?php
+declare(strict_types=1);
 
-class DependantServiceProviderTest extends TestCase {
+class DependantServiceProviderTest extends TestCase
+{
+    protected function getPackageProviders($app)
+    {
+        return [
+            EspadaV8\Breadcrumbs\ServiceProvider::class,
+            DependantServiceProvider::class,
+        ];
+    }
 
-	protected function getPackageProviders($app)
-	{
-		return [
-			EspadaV8\Breadcrumbs\ServiceProvider::class,
-			DependantServiceProvider::class,
-		];
-	}
+    protected function loadServiceProvider()
+    {
+        // Disabled - we want to test the automatic loading instead
+    }
 
-	protected function loadServiceProvider()
-	{
-		// Disabled - we want to test the automatic loading instead
-	}
-
-	public function testRender()
-	{
-		$html = Breadcrumbs::render('home');
-		$this->assertXmlStringEqualsXmlFile(__DIR__ . '/../fixtures/DependantServiceProvider.html', $html);
-	}
-
+    public function testRender()
+    {
+        $html = Breadcrumbs::render('home');
+        $this->assertXmlStringEqualsXmlFile(__DIR__ . '/../fixtures/DependantServiceProvider.html', $html);
+    }
 }
 
-class DependantServiceProvider extends Illuminate\Support\ServiceProvider {
+class DependantServiceProvider extends Illuminate\Support\ServiceProvider
+{
+    public function register()
+    {
+    }
 
-	public function register()
-	{
-	}
-
-	public function boot()
-	{
-		Breadcrumbs::register('home', function($breadcrumbs) {
-			$breadcrumbs->push('Home', '/');
-		});
-	}
-
+    public function boot()
+    {
+        Breadcrumbs::register('home', function ($breadcrumbs) {
+            $breadcrumbs->push('Home', '/');
+        });
+    }
 }

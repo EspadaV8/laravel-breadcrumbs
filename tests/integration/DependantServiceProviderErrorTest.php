@@ -1,43 +1,42 @@
 <?php
+declare(strict_types=1);
 
-class DependantServiceProviderErrorTest extends TestCase {
+class DependantServiceProviderErrorTest extends TestCase
+{
+    protected function getPackageProviders($app)
+    {
+        return [
+            // These are in the wrong order
+            DependantServiceProviderError::class,
+            EspadaV8\Breadcrumbs\ServiceProvider::class,
+        ];
+    }
 
-	protected function getPackageProviders($app)
-	{
-		return [
-			// These are in the wrong order
-			DependantServiceProviderError::class,
-			EspadaV8\Breadcrumbs\ServiceProvider::class,
-		];
-	}
+    protected function loadServiceProvider()
+    {
+        // Disabled - we want to test the automatic loading instead
+    }
 
-	protected function loadServiceProvider()
-	{
-		// Disabled - we want to test the automatic loading instead
-	}
-
-	/**
-	 * @expectedException EspadaV8\Breadcrumbs\Exception
-	 * @expectedExceptionMessage Breadcrumbs view not specified
-	 */
-	public function testRender()
-	{
-		Breadcrumbs::render('home');
-	}
-
+    /**
+     * @expectedException EspadaV8\Breadcrumbs\Exception
+     * @expectedExceptionMessage Breadcrumbs view not specified
+     */
+    public function testRender()
+    {
+        Breadcrumbs::render('home');
+    }
 }
 
-class DependantServiceProviderError extends Illuminate\Support\ServiceProvider {
+class DependantServiceProviderError extends Illuminate\Support\ServiceProvider
+{
+    public function register()
+    {
+    }
 
-	public function register()
-	{
-	}
-
-	public function boot()
-	{
-		Breadcrumbs::register('home', function($breadcrumbs) {
-			$breadcrumbs->push('Home', '/');
-		});
-	}
-
+    public function boot()
+    {
+        Breadcrumbs::register('home', function ($breadcrumbs) {
+            $breadcrumbs->push('Home', '/');
+        });
+    }
 }
