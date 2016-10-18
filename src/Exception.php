@@ -1,4 +1,8 @@
-<?php namespace EspadaV8\Breadcrumbs;
+<?php
+declare(strict_types=1);
 
-class Exception extends \Exception {
+namespace EspadaV8\Breadcrumbs;
+
+class Exception extends \Exception
+{
 }
