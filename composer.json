@@ -31,7 +31,7 @@
   },
   "autoload": {
     "psr-4": {
-      "DaveJamesMiller\\Breadcrumbs\\": "src/"
+      "EspadaV8\\Breadcrumbs\\": "src/"
     }
   }
 }

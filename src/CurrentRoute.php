@@ -1,4 +1,4 @@
-<?php namespace DaveJamesMiller\Breadcrumbs;
+<?php namespace EspadaV8\Breadcrumbs;
 
 use Illuminate\Contracts\Routing\Registrar as Router;
 

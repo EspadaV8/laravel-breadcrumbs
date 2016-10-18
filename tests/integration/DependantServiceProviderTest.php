@@ -5,7 +5,7 @@ class DependantServiceProviderTest extends TestCase {
 	protected function getPackageProviders($app)
 	{
 		return [
-			DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+			EspadaV8\Breadcrumbs\ServiceProvider::class,
 			DependantServiceProvider::class,
 		];
 	}

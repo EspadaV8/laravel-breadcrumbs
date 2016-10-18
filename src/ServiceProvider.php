@@ -1,4 +1,4 @@
-<?php namespace DaveJamesMiller\Breadcrumbs;
+<?php namespace EspadaV8\Breadcrumbs;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
@@ -33,7 +33,7 @@ class ServiceProvider extends BaseServiceProvider {
 	{
 		$this->app['breadcrumbs'] = $this->app->share(function($app)
 		{
-			$breadcrumbs = $this->app->make('DaveJamesMiller\Breadcrumbs\Manager');
+			$breadcrumbs = $this->app->make('EspadaV8\Breadcrumbs\Manager');
 
 			$viewPath = __DIR__ . '/../views/';
 

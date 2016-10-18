@@ -6,7 +6,7 @@ class ViewTest extends TestCase {
 	{
 		parent::setUp();
 
-		$this->view = app('DaveJamesMiller\Breadcrumbs\View');
+		$this->view = app('EspadaV8\Breadcrumbs\View');
 
 		$this->breadcrumbs = [
 			(object) [
