@@ -41,12 +41,10 @@ class Manager
         return isset($this->callbacks[$name]);
     }
 
-    public function generate($name = null)
+    public function generate($name = null, ...$params = [])
     {
         if (is_null($name)) {
             list($name, $params) = $this->currentRoute->get();
-        } else {
-            $params = array_slice(func_get_args(), 1);
         }
 
         return $this->generator->generate($this->callbacks, $name, $params);
@@ -57,12 +55,10 @@ class Manager
         return $this->generator->generate($this->callbacks, $name, $params);
     }
 
-    public function generateIfExists($name = null)
+    public function generateIfExists($name = null, ...$params = [])
     {
         if (is_null($name)) {
             list($name, $params) = $this->currentRoute->get();
-        } else {
-            $params = array_slice(func_get_args(), 1);
         }
 
         if (!$this->exists($name)) {
@@ -90,12 +86,10 @@ class Manager
         return call_user_func_array([$this, 'generateIfExistsArray'], func_get_args());
     }
 
-    public function render($name = null)
+    public function render($name = null, ...$params = [])
     {
         if (is_null($name)) {
             list($name, $params) = $this->currentRoute->get();
-        } else {
-            $params = array_slice(func_get_args(), 1);
         }
 
         $breadcrumbs = $this->generator->generate($this->callbacks, $name, $params);
@@ -110,12 +104,10 @@ class Manager
         return $this->view->render($this->viewName, $breadcrumbs);
     }
 
-    public function renderIfExists($name = null)
+    public function renderIfExists($name = null, ...$params = [])
     {
         if (is_null($name)) {
             list($name, $params) = $this->currentRoute->get();
-        } else {
-            $params = array_slice(func_get_args(), 1);
         }
 
         if (!$this->exists($name)) {
