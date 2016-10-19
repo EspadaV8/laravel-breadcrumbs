@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 use EspadaV8\Breadcrumbs\CurrentRoute;
-use Mockery as m;
 
 class CurrentRouteTest extends TestCase
 {
@@ -24,7 +23,7 @@ class CurrentRouteTest extends TestCase
 
     public function testNamedRouteWithParameters()
     {
-        $object = new stdClass;
+        $object = new stdClass();
 
         Route::bind('object', function () use ($object) {
             return $object;

@@ -15,9 +15,9 @@ class Manager
 
     public function __construct(CurrentRoute $currentRoute, Generator $generator, View $view)
     {
-        $this->generator    = $generator;
+        $this->generator = $generator;
         $this->currentRoute = $currentRoute;
-        $this->view         = $view;
+        $this->view = $view;
     }
 
     public function register($name, $callback)

@@ -22,10 +22,10 @@ class IntegrationTest extends TestCase
         });
 
         $this->post = (object) [
-            'id'       => 123,
-            'title'    => 'Sample Post',
+            'id' => 123,
+            'title' => 'Sample Post',
             'category' => (object) [
-                'id'    => 456,
+                'id' => 456,
                 'title' => 'Sample Category',
             ],
         ];

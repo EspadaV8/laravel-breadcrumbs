@@ -11,9 +11,9 @@ class ManagerTest extends TestCase
         parent::setUp();
 
         $this->currentRoute = m::mock('EspadaV8\Breadcrumbs\CurrentRoute');
-        $this->generator    = m::mock('EspadaV8\Breadcrumbs\Generator');
-        $this->view         = m::mock('EspadaV8\Breadcrumbs\View');
-        $this->manager      = new Manager($this->currentRoute, $this->generator, $this->view);
+        $this->generator = m::mock('EspadaV8\Breadcrumbs\Generator');
+        $this->view = m::mock('EspadaV8\Breadcrumbs\View');
+        $this->manager = new Manager($this->currentRoute, $this->generator, $this->view);
 
         $this->manager->setView('view');
     }
@@ -56,7 +56,7 @@ class ManagerTest extends TestCase
 
         $this->currentRoute->shouldReceive('get')->andReturn(['sample', [1, 'blah']]);
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [1, 'blah'])->once()->andReturn('generated');
-        ;
+
 
         $this->assertSame('generated', $this->manager->generate());
     }
@@ -67,7 +67,7 @@ class ManagerTest extends TestCase
         $fn = $this->register('sample');
 
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [])->once()->andReturn('generated');
-        ;
+
 
         $this->assertSame('generated', $this->manager->generate('sample'));
     }
@@ -78,7 +78,7 @@ class ManagerTest extends TestCase
         $fn = $this->register('sample');
 
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [1, 'blah'])->once()->andReturn('generated');
-        ;
+
 
         $this->assertSame('generated', $this->manager->generate('sample', 1, 'blah'));
     }
@@ -89,7 +89,7 @@ class ManagerTest extends TestCase
         $fn = $this->register('sample');
 
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [1, 'blah'])->once()->andReturn('generated');
-        ;
+
 
         $this->assertSame('generated', $this->manager->generateArray('sample', [1, 'blah']));
     }
@@ -171,7 +171,7 @@ class ManagerTest extends TestCase
 
         $this->currentRoute->shouldReceive('get')->andReturn(['sample', [1, 'blah']]);
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [1, 'blah'])->once()->andReturn('generated');
-        ;
+
         $this->view->shouldReceive('render')->with('view', 'generated')->once()->andReturn('rendered');
 
         $this->assertSame('rendered', $this->manager->render());
@@ -183,7 +183,7 @@ class ManagerTest extends TestCase
         $fn = $this->register('sample');
 
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [])->once()->andReturn('generated');
-        ;
+
         $this->view->shouldReceive('render')->with('view', 'generated')->once()->andReturn('rendered');
 
         $this->assertSame('rendered', $this->manager->render('sample'));
@@ -195,7 +195,7 @@ class ManagerTest extends TestCase
         $fn = $this->register('sample');
 
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [1, 'blah'])->once()->andReturn('generated');
-        ;
+
         $this->view->shouldReceive('render')->with('view', 'generated')->once()->andReturn('rendered');
 
         $this->assertSame('rendered', $this->manager->render('sample', 1, 'blah'));
@@ -207,7 +207,7 @@ class ManagerTest extends TestCase
         $fn = $this->register('sample');
 
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [1, 'blah'])->once()->andReturn('generated');
-        ;
+
         $this->view->shouldReceive('render')->with('view', 'generated')->once()->andReturn('rendered');
 
         $this->assertSame('rendered', $this->manager->renderArray('sample', [1, 'blah']));
@@ -329,7 +329,7 @@ class ManagerTest extends TestCase
         $fn = $this->register('sample');
 
         $this->generator->shouldReceive('generate')->with(['sample' => $fn], 'sample', [1, 'blah'])->once()->andReturn('generated');
-        ;
+
         $this->view->shouldReceive('render')->with('custom.view', 'generated')->once()->andReturn('rendered');
 
         $this->manager->setView($view = 'custom.view');

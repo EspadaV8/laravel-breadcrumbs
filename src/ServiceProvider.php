@@ -60,7 +60,7 @@ class ServiceProvider extends BaseServiceProvider
         $this->mergeConfigFrom($configFile, 'breadcrumbs');
 
         $this->publishes([
-            $configFile => config_path('breadcrumbs.php')
+            $configFile => config_path('breadcrumbs.php'),
         ]);
 
         $this->registerBreadcrumbs();
@@ -70,10 +70,10 @@ class ServiceProvider extends BaseServiceProvider
     public function registerBreadcrumbs()
     {
         // Load the app breadcrumbs if they're in routes/breadcrumbs.php (Laravel 5.3)
-        if (file_exists($file = $this->app['path.base'].'/routes/breadcrumbs.php')) {
+        if (file_exists($file = $this->app['path.base'] . '/routes/breadcrumbs.php')) {
             require $file;
         } // Load the app breadcrumbs if they're in app/Http/breadcrumbs.php (Laravel 5.0-5.2)
-        elseif (file_exists($file = $this->app['path'].'/Http/breadcrumbs.php')) {
+        elseif (file_exists($file = $this->app['path'] . '/Http/breadcrumbs.php')) {
             require $file;
         }
     }

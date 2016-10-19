@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 use EspadaV8\Breadcrumbs\Generator;
-use Mockery as m;
 
 class GeneratorTest extends TestCase
 {
@@ -10,7 +9,7 @@ class GeneratorTest extends TestCase
     {
         parent::setUp();
 
-        $this->generator = new Generator;
+        $this->generator = new Generator();
     }
 
     public function testCallbacks()
@@ -67,8 +66,8 @@ class GeneratorTest extends TestCase
     public function testPush_title_url_data()
     {
         $data = [
-            'foo'   => 'bar',
-            'baz'   => 'qux',
+            'foo' => 'bar',
+            'baz' => 'qux',
             'title' => 'should not be overwritten by custom data',
         ];
 
