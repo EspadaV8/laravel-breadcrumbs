@@ -9,6 +9,3 @@ composer.lock
 
 # Test coverage output
 /test-coverage/
-
-# Operating system files
-.DS_Store
