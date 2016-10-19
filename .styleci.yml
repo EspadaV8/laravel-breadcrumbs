@@ -1,3 +1,5 @@
+preset: none
+
 enabled:
   - blank_line_after_namespace
   - braces
