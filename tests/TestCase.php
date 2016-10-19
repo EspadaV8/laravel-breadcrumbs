@@ -13,7 +13,7 @@ abstract class TestCase extends Orchestra\Testbench\TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Breadcrumbs' => EspadaV8\Breadcrumbs\Facade::class
+            'Breadcrumbs' => EspadaV8\Breadcrumbs\Facade::class,
         ];
     }
 
